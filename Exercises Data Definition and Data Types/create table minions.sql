@@ -28,3 +28,21 @@ ALTER TABLE minions
 ADD CONSTRAINT fk_town_id FOREIGN KEY (town_id) REFERENCES towns(id);
 
 SELECT * FROM towns;
+SELECT * FROM minions;
+
+drop table minions;
+drop table towns;
+INSERT INTO towns(id,name) VALUE(1,'Sofia');
+INSERT INTO towns(id,name) VALUE(2,'Plovdiv');
+INSERT INTO towns(id,name) VALUE(3,'Varna');
+
+INSERT INTO minions(id,name,age,town_id) VALUE(1,'Kevin',22,1);
+INSERT INTO minions(id,name,age,town_id) VALUE(2,'Bob',15, 3);
+INSERT INTO minions(id,name,age,town_id) VALUE(3,'Steward',NULL,2);
+
+
+SELECT * FROM towns;
+SELECT * FROM minions;
+
+
+
