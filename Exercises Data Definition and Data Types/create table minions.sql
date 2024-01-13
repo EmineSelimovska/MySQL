@@ -13,4 +13,18 @@ CREATE TABLE towns(
    name VARCHAR(60),
   
   PRIMARY KEY (town_id)
-)
+);
+
+ALTER TABLE towns
+CHANGE town_id id INT AUTO_INCREMENT PRIMARY KEY;
+
+ALTER TABLE towns
+ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY;
+
+ALTER TABLE minions
+ADD COLUMN town_id INT;
+
+ALTER TABLE minions
+ADD CONSTRAINT fk_town_id FOREIGN KEY (town_id) REFERENCES towns(id);
+
+SELECT * FROM towns;
