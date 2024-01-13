@@ -19,3 +19,22 @@ VALUES('Ivan Ivanov', 'color', 1.45, 67.2,'m','1990-05-25','Specialist'),
 ('Ivailo Ivanov', 'color', 1.75, 67.5,'m','1990-01-25','Specialist');
 
 SELECT * FROM people;
+
+CREATE TABLE users(
+id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(30) NOT NULL UNIQUE,
+password VARCHAR(30) NOT NULL,
+profile_picture BLOB,
+last_login_time DATETIME,
+is_deleted BOOL
+);
+
+INSERT INTO users(username,password, profile_picture, last_login_time, is_deleted)
+VALUES('Ivan','123456','Specialist',now(),true),
+('Stefcho', '123456','Specialisttt', now(), true),
+('Liliq', '123456','Specialist', now(), false),
+('Sefa', '123456','Specialisttt', now(), true),
+('Lili', '123456','Specialist', now(), false);
+
+SELECT * FROM users;
+
