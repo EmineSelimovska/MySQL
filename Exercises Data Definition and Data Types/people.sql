@@ -46,5 +46,9 @@ ADD PRIMARY KEY(id,username);
 ALTER TABLE users
 CHANGE last_login_time last_login_time DATETIME DEFAULT NOW();
 
-
-
+ALTER TABLE users
+DROP PRIMARY KEY,
+ADD CONSTRAINT pk_id
+PRIMARY KEY(id),
+ADD CONSTRAINT uq_username
+UNIQUE(username);
