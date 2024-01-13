@@ -44,5 +44,10 @@ INSERT INTO minions(id,name,age,town_id) VALUE(3,'Steward',NULL,2);
 SELECT * FROM towns;
 SELECT * FROM minions;
 
+TRUNCATE TABLE minions;
+
+DROP TABLE minions;
+DROP TABLE towns;
+
 
 
