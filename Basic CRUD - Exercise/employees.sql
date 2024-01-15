@@ -27,3 +27,7 @@ SELECT concat(first_name,' ',middle_name, ' ',last_name) as 'Full Name'
 FROM employees
 WHERE salary = 25000 || salary = 14000 || salary = 12500 || salary = 23600;
 
+SELECT first_name, last_name 
+FROM employees
+WHERE manager_id is Null;
+
