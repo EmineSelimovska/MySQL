@@ -10,3 +10,12 @@ ORDER BY employee_id;
 
 SELECT concat(first_name,'.',last_name,'@softuni.bg') as full_email_address
 FROM employees;
+
+SELECT DISTINCT salary FROM employees;
+
+SELECT *
+FROM employees 
+WHERE job_title = "Sales Representative"
+ORDER BY employee_id;
+
+
