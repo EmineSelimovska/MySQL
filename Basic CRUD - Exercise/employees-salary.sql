@@ -22,6 +22,27 @@ first_name,middle_name ASC,
 last_name DESC;
 
 
+CREATE VIEW v_employees_salaries AS
+SELECT first_name, last_name, salary 
+from employees;
+
+SELECT * 
+from v_employees_salaries;
+
+
+CREATE VIEW v_employees_job_titles as
+SELECT concat_ws(' ', first_name, middle_name, last_name) as full_name, job_title
+from employees;
+
+SELECT * from v_employees_job_titles;
+
+
+
+
+
+
+
+
 
 
 
