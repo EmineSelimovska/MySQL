@@ -10,3 +10,7 @@ SELECT first_name, last_name
 from employees
 ORDER BY salary DESC
 LIMIT 5;
+
+SELECT first_name, last_name
+from employees
+WHERE department_id != 4;
