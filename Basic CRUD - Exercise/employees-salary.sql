@@ -40,6 +40,9 @@ SELECT DISTINCT job_title
 from employees
 ORDER BY job_title ASC;
 
+SELECT * from 
+employees ;
+
 
 
 
