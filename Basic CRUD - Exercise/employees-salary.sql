@@ -36,6 +36,10 @@ from employees;
 
 SELECT * from v_employees_job_titles;
 
+SELECT DISTINCT job_title
+from employees
+ORDER BY job_title ASC;
+
 
 
 
