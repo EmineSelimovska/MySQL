@@ -14,3 +14,14 @@ LIMIT 5;
 SELECT first_name, last_name
 from employees
 WHERE department_id != 4;
+
+SELECT *
+from employees
+ORDER BY salary desc,
+first_name,middle_name ASC,
+last_name DESC;
+
+
+
+
+
