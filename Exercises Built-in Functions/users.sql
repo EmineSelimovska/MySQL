@@ -1,7 +1,6 @@
 SELECT * FROM diablo.users;
 
-
-SELECT user_name,substring(email,locate('@',email) + 1) as 'email_provider'
-from users
-ORDER BY email_provider, user_name;
- 
+SELECT user_name, ip_address 
+FROM users
+WHERE ip_address LIKE "___.1%.%.___"
+ORDER BY user_name;
