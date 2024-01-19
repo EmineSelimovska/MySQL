@@ -10,3 +10,8 @@ WHERE substring(title, 1, 3) = 'The'
 ORDER BY id;
 
 SELECT round(SUM(cost),2) AS 'sum' FROM books ;
+
+SELECT title FROM books
+WHERE title LIKE 'Harry Potter%'
+ORDER BY id;
+
