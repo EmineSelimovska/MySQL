@@ -1,4 +1,8 @@
 SELECT * FROM restaurant.products;
 
-SELECT count(*) as 'appetizers' FROM products
-WHERE category_id = 2 AND price > 8;
+SELECT category_id,
+ ROUND(AVG(price),2) as 'Average Price',
+ ROUND(MIN(price),2) as 'Cheapest Product',
+ ROUND(MAX(price),2) as 'Most Expensive Product'
+ FROM products
+ GROUP BY category_id;
