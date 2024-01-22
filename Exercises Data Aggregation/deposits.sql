@@ -10,3 +10,9 @@ SELECT deposit_group,
  FROM wizzard_deposits
  GROUP BY deposit_group
  ORDER BY longest_magic_wand,deposit_group;
+ 
+ SELECT deposit_group 
+ FROM wizzard_deposits
+	WHERE ( 
+    SELECT MIN(magic_wand_size) from wizzard_deposits)
+ LIMIT 1;
