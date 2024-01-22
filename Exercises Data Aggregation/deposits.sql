@@ -48,3 +48,19 @@ SELECT deposit_group,
  GROUP BY deposit_group,magic_wand_creator
  ORDER BY magic_wand_creator,deposit_group;
 
+
+SELECT
+ CASE
+   WHEN age <11 THEN '[0-10]'
+   WHEN age <21  THEN '[11-20]'
+   WHEN age <31 THEN '[21-30]'
+   WHEN age <41 THEN '[31-40]'
+   WHEN age <51 THEN '[41-50]'
+   WHEN age <61    THEN '[51-60]'
+   when age >= 61 then '[61+]'
+   END as age_group,
+ COUNT(*) as wizard_count
+   FROM wizzard_deposits
+   GROUP BY age_group
+   ORDER BY wizard_count;
+
