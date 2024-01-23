@@ -34,3 +34,35 @@ SELECT
 FROM
     employees
     WHERE manager_id IS NULL;
+    
+    SELECT department_id, SUM(salary) as total_salary 
+    FROM employees
+    GROUP BY department_id
+    ORDER BY department_id;
+    
+SELECT 
+    department_id,
+    (SELECT DISTINCT
+            salary
+        FROM
+            employees
+        WHERE
+            e.department_id = department_id
+        ORDER BY salary DESC
+        LIMIT 1 OFFSET 2) as third_higest_salary
+FROM
+    employees e
+GROUP BY department_id
+HAVING third_higest_salary IS NOT NULL
+ORDER BY department_id;
+
+SELECT first_name, last_name, department_id
+FROM employees e
+where salary > ( SELECT AVG(salary)
+from employees 
+where department_id = e.department_id
+)
+ORDER BY department_id, employee_id
+limit 10
+
+    
