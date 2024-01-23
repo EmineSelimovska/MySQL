@@ -7,3 +7,17 @@ FROM employees
 WHERE department_id IN (2, 5, 7) AND hire_date > '2000-01-01'
 GROUP BY department_id
 ORDER BY department_id ASC;
+
+CREATE TABLE new_empoyees 
+select * from employees 
+where salary > 30000; 
+
+DELETE from new_empoyees
+where manager_id = 42;
+
+UPDATE new_empoyees SET salary = salary + 5000
+where department_id = 1;
+
+SELECT department_id, AVG(salary) as avg_salary FROM new_empoyees
+GROUP BY department_id
+ORDER BY department_id;
