@@ -74,3 +74,5 @@ WHERE
 GROUP BY first_letter
 ORDER BY first_letter;
 
+
+
