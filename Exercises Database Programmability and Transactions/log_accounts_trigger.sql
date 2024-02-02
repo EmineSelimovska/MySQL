@@ -21,3 +21,33 @@ FOR EACH ROW
 
 
 DELIMITER ;
+
+
+
+
+CREATE TABLE notification_emails(
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ recipient int not null,
+ subject VARCHAR(2000),
+ body text 
+)
+
+DELIMITER $
+CREATE TRIGGER tr_emails
+AFTER INSERT
+ON logs
+FOR EACH ROW
+   BEGIN
+   INSERT INTO notification_emails(recipient, subject, body) VALUES
+   (new.account_id, 
+   concat('Balance change for account: ', new.account_id),
+   concat('On ',date_format(NOW(), ' %b %m %Y at %r'),' your balance was changed from ',
+   ROUND(new.old_sum, 0),' to ', ROUND(new.new_sum, 0),'.'));
+   
+   END $
+
+
+DELIMITER ;
+
+select * from notification_emails;
+SELECT date_format(NOW(), ' %b %m %Y at %r');
