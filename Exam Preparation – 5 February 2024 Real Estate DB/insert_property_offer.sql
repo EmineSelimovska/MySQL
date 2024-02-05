@@ -22,4 +22,8 @@ WHERE price >= 800000;
 DELETE FROM property_transactions
 WHERE is_successful = 0;
 
+SELECT id, first_name, last_name,
+phone, email, city_id FROM agents
+ORDER BY city_id DESC, phone DESC;
+
 
