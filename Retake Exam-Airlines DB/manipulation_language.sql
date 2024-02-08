@@ -16,3 +16,6 @@ UPDATE flights f
 RIGHT JOIN countries c on c.id = f.departure_country
 SET airplane_id = airplane_id + 1 
 WHERE c.name = 'Armenia';
+
+DELETE FROM flights 
+WHERE id NOT IN(SELECT flight_id FROM flights_passengers);
