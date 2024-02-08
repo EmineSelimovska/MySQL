@@ -1,4 +1,5 @@
 SELECT * FROM airlines_db.airplanes;
+use airlines_db;
 
 -- 05 
 SELECT id, model, passengers_capacity,
@@ -46,8 +47,18 @@ ORDER BY p.country_id;
  
  -- 11 
  
- 
+ DELIMITER $ 
+CREATE PROCEDURE udp_delay_flight(code VARCHAR(50))
+BEGIN 
 
+UPDATE flights 
+SET departure =  date_add(departure, interval 30 minute)
+WHERE flight_code = code;
+UPDATE flights 
+SET has_delay = 1
+WHERE has_delay = 0 and flight_code = code;
+END $
+ DELIMITER ;
 
-
+CALL udp_delay_flight('ZP-782');
 
