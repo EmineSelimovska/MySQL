@@ -21,3 +21,7 @@ adddate(birthdate , interval -2 DAY),
  WHERE id >= 15 AND id <= 25;
  
  
+-- 04 DELETE 
+
+DELETE FROM countries 
+WHERE id NOT IN (SELECT country_id FROM movies);
