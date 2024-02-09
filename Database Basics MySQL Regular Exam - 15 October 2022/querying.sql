@@ -13,3 +13,11 @@ FROM clients
 WHERE card IS NULL AND (YEAR(birthdate) BETWEEN 1978 AND 1993)
 ORDER BY last_name DESC, id ASC
 LIMIT 5;
+
+-- 07. Accounts
+
+SELECT CONCAT(last_name,first_name,CHAR_LENGTH(first_name),"Restaurant") as username,
+REVERSE(SUBSTR(email, 2,12)) as password from waiters 
+WHERE salary IS NOT NULL
+ORDER BY password DESC;
+
