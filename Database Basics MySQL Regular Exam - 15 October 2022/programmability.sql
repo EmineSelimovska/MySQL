@@ -27,5 +27,17 @@ DELIMITER ;
 
 SELECT udf_client_bill('Silvio Blyth');
 
+-- 11. Happy hour
 
+DELIMITER $ 
+CREATE PROCEDURE udp_happy_hour (type_name VARCHAR(50))
+BEGIN
+UPDATE products 
+SET price = price - (price * 0.2)
+WHERE price >= 10.00 and type = type_name;
+END $
+
+
+DELIMITER ;
     
+    CALL udp_happy_hour ('Cognac');
