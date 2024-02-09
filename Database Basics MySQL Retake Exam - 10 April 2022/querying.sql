@@ -22,3 +22,12 @@ concat(reverse(last_name),char_length(last_name), '@cast.com') as email,
 2022 - year(birthdate) as age, height from actors
 WHERE id NOT IN(SELECT actor_id FROM movies_actors)
 ORDER BY height;
+
+-- 08. International festival
+
+SELECT c.name, COUNT(*) as movies_count FROM countries c
+JOIN movies m ON c.id = m.country_id
+GROUP BY c.name
+HAVING movies_count >= 7
+ORDER BY c.name DESC;
+
