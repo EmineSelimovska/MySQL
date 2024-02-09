@@ -16,3 +16,9 @@ ORDER BY mi.runtime, mi.id
 LIMIT 20;
 
 -- 07. Movie casting
+
+SELECT concat(first_name, ' ', last_name) as full_name,
+concat(reverse(last_name),char_length(last_name), '@cast.com') as email,
+2022 - year(birthdate) as age, height from actors
+WHERE id NOT IN(SELECT actor_id FROM movies_actors)
+ORDER BY height;
