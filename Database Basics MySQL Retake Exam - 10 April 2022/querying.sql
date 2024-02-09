@@ -31,3 +31,19 @@ GROUP BY c.name
 HAVING movies_count >= 7
 ORDER BY c.name DESC;
 
+-- 09. Rating system
+
+SELECT m.title,
+CASE
+WHEN mi.rating <= 4 THEN "poor"
+WHEN mi.rating > 4 and mi.rating <= 7 THEN "good"
+WHEN mi.rating > 7 THEN "excellent"
+END AS rating,
+CASE
+WHEN mi.has_subtitles = 1 THEN "english"
+WHEN mi.has_subtitles = 0 THEN "-"
+END AS subtitles, mi.budget FROM movies m
+JOIN movies_additional_info mi ON m.movie_info_id = mi.id
+ORDER BY mi.budget DESC;
+
+
