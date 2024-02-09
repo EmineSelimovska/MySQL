@@ -21,3 +21,28 @@ REVERSE(SUBSTR(email, 2,12)) as password from waiters
 WHERE salary IS NOT NULL
 ORDER BY password DESC;
 
+-- 08. Top from menu
+
+SELECT p.id, p.name, COUNT(op.order_id) as count  FROM products p
+JOIN orders_products op on p.id = op.product_id
+GROUP BY  name
+HAVING count >= 5
+ORDER BY count DESC, name ASC;
+
+-- 09. Availability
+
+SELECT o.table_id, t.capacity, COUNT(oc.client_id) as count_clients,
+ CASE 
+ WHEN t.capacity > COUNT(oc.client_id) THEN "Free seats"
+ WHEN t.capacity = COUNT(oc.client_id) THEN "Full"
+ WHEN t.capacity < COUNT(oc.client_id) THEN "Extra seats"
+ END AS availability
+ from orders o
+JOIN orders_clients oc ON o.id = oc.order_id
+JOIN tables t ON t.id = o.table_id
+WHERE t.floor = 1
+GROUP BY o.table_id
+ORDER BY o.table_id DESC;
+
+
+
