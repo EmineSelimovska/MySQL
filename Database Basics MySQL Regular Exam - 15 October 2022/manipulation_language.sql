@@ -1,0 +1,13 @@
+SELECT * FROM restaurant_db.products;
+
+-- 02 Insert
+
+INSERT INTO products(name, type, price)
+SELECT 
+concat(last_name, ' ', "specialty"),
+"Cocktail",
+ceiling(salary * 0.01)
+FROM waiters
+WHERE id > 6;
+
+-- 03 Update
